@@ -28,5 +28,5 @@ def producto_matrices(matriz_1,matriz_2):
 
 rellenar_matriz(matriz_1)
 rellenar_matriz(matriz_2)
-matriz_suma = producto_matrices(matriz_1, matriz_2)
-print(f"{matriz_suma[0]}\n{matriz_suma[1]}")
+matriz_prod = producto_matrices(matriz_1, matriz_2)
+print(f"{matriz_prod[0]}\n{matriz_prod[1]}")
