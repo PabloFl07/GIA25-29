@@ -1,0 +1,7 @@
+1. Tal cual el apartado "Funciones y lambdify" de la chuleta "Sympy_1"
+
+
+2. Teneis como hacer inversas en el boletin 1 de los apuntees. en los apartados composicion de funciones y calculo de inversas.
+teneis que hacer las dods cosas
+
+3. el tercer ejercicio no tengo ni idea
