@@ -12,9 +12,9 @@ n = np.arange(valini,valini + duracion)
 
 a = [ -0.9, 0.9, 1.1 , -1.1] # Tipos de exponenciales
 
-x = (a[1]**n  * (n>=0))# Al multiplicar por el escalón unitario, se anula para n<0
-
-
+x = (a[1]**n * (n>=0) )# Al multiplicar por el escalón unitario, se anula para n<0.
+# Esto funciona de forma que  ( n >=0 ) es un array de ( True / False) según la condición
+# Al multiplicar cada elemento de n por False (0) o True (1), se anulan los negativos
 
 
 plt.xlabel("Tiempo")

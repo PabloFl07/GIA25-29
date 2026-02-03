@@ -14,10 +14,13 @@ while True:
     volt = (val * vref) / 4096 # Calculo del voltaje
     try:
         res = ((vref * 10 / volt) - 10) # Calculo de la resistencia
-        print(f"{volt:.5f} V | {res:.2f}  kΩ\t-- {val}")
+        print(f"{volt:.5f} V | {res}  kΩ\t-- {val}")
     except ZeroDivisionError:
         print("!Err: 0V!")
     
     time.sleep(0.1)
- 
-# P3 :  Para un valor de ADC 1, V = 8x10^-4 -> RL = 41250kΩ. Pues no podemos dividir entre 0 | 0.0 ( Con V = Vref ) 
+    
+    
+# P1 : Aproximadamente 3500 | 1.43 - kΩ aprox.
+# P2 : Aproximadamente 1400 | 20 kΩ aprox.
+# P3 : Para un valor de ADC 1, V = 8x10^-4 -> RL = 40950kΩ. Pues no podemos dividir entre 0 | 0.00244 ( Con V = Vref ) 
