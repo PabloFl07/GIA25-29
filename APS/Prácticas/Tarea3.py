@@ -16,6 +16,6 @@ while True:
     time.sleep(0.1)
 
 
-# P1 : 4095. El ADC calcula rangos desde 0 ( 0V ) hasta 2^n -1 ( n bits de resolucion ), que con 12 bits son 4096 - 1.
+# P1 : 4095, el maximo, porque el ADC calcula valores desde 0 hasta 2^n -1 (n bits de resolucion), que con 12 bits es 4095.
 # P2 : 12 porque el valor maximo que mide es 4095 ( 2^12 -1 ) .  255 ( 2^8 -1 )
-# P3 : A partir de la mitad. 1.999 . 3.3 V
+# P3 : A partir de la mitad. 1.999 . 3.3 V, el voltaje real se mantiene en 3.3 V pero el ADC solo mide hasta 2 V
