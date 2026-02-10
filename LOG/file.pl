@@ -39,8 +39,9 @@ progenitor(X,Y) :- padre(X,Y) ;  madre(X,Y).
 antepasado(X,Y) :- progenitor(X,Y).
 antepasado(X,Z) :- progenitor(X,Y), antepasado(Y,Z).
 
+% antepasado(X,Z) :- progenitor(Y,Z), antepasado(X,Y).
 
-
-% 2
-%antepasado(X,Z) :- progenitor(Y,Z), antepasado(X,Y).
+fecha(fecha(1,2,2024)).
+padre(juan, padre(maria)). % padre(maria) es un objeto distinto, nada que ver con alberto
+padre(maria,alberto).
 
