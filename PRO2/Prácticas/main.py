@@ -1,11 +1,5 @@
 from abc import ABC, abstractmethod
 
-
-class Ciudad:
-    def __init__():
-        raise NotImplementedError()
-
-
 class Edificio(ABC):
     def __init__(
         self, nombre, coste_construccion, coste_mantenimiento, impacto_felicidad

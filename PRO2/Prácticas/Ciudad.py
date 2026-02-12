@@ -3,16 +3,38 @@ from main import Edificio, Viviendas, Oficinas, Equipamiento
 class Ciudad:
 
     _IMPUESTO_POR_HABITANTE = 500
-    UMBRAL_OCUPACION = 0.85
-    RATIO_EQUIPAMIENTO = 0.01
-    FELICIDAD_MEDIA = 50
+    _UMBRAL_OCUPACION = 0.85
+    _RATIO_EQUIPAMIENTO = 0.01
+    _FELICIDAD_MEDIA = 50
 
     def __init__(self, nombre : str, habitantes : int, presupuesto: int, felicidad: int, edificios: list):
-        self.nombre = nombre
-        self.habitantes = habitantes
-        self.presupuesto = presupuesto
-        self.felicidad = felicidad
-        self.edificios = edificios
+        self._nombre = nombre
+        self._habitantes = habitantes
+        self._presupuesto = presupuesto
+        self._felicidad = felicidad
+        self._edificios = edificios
+
+
+    @property
+    def nombre(self) -> str:
+        return self._nombre
+    
+    @property
+    def habitantes(self) -> int:
+        return self._habitantes
+    
+    @property
+    def presupuesto(self) -> int:
+        return self._presupuesto
+    
+    @property
+    def felicidad(self) -> int:
+        return self._felicidad
+    
+    @property
+    def edificios(self) -> int:
+        return self._edificios
+    
 
     def construir_edificio(self, edificio : Edificio):
         coste = edificio.coste_construccion
@@ -38,7 +60,7 @@ class Ciudad:
         self.presupuesto = ingresos - gastos
     
 
-    def actualizar_felicidad(self): # !
+    def actualizar_felicidad(self): # !!
 
         if self.habitantes <= 0:
             self.felicidad = self.FELICIDAD_MEDIA
@@ -57,16 +79,8 @@ class Ciudad:
 
             felicidad_total += edificio.impacto_felicidad
 
-
-
-        
-
-
         if len(self.edificios) != 0:
             capacidad_total = self.obtener_capacidad_oficinas() + self.obtener_capacidad_viviendas()
-
-
-
 
         if self.habitantes / capacidad_total > self.UMBRAL_OCUPACION:
             felicidad_total -= 10
