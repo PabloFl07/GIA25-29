@@ -1,4 +1,4 @@
-from main import Edificio, Viviendas, Oficinas, Equipamiento
+from edificios import Edificio, Viviendas, Oficinas, Equipamiento
 
 class Ciudad:
 
@@ -98,10 +98,6 @@ class Ciudad:
 
         self.felicidad = felicidad_total
 
-
-
-
-
     def obtener_capacidad_viviendas(self) -> int:
         capacidad_viviendas = 0
         for edificio in self.edificios:
@@ -131,10 +127,4 @@ class Ciudad:
 
 
 if __name__ == "__main__":
-    coruña = Ciudad("Coruña", 1000, 40000, 50, [])
-
-    edificio = Viviendas("Edificio 1", 1000, 50, 40,50,50)
-
-    coruña.construir_edificio(edificio)
-
-    print(coruña.actualizar_presupuesto())
+    pass
