@@ -15,6 +15,10 @@ class Ciudad:
         self._edificios = edificios
 
 
+    def __str__(self):
+        return f"{self.nombre}: {self.habitantes}:{self.presupuesto}: {self.felicidad}"
+
+
     @property
     def nombre(self) -> str:
         return self._nombre
@@ -35,13 +39,17 @@ class Ciudad:
     def edificios(self) -> int:
         return self._edificios
     
+    @presupuesto.setter
+    def presupuesto(self, valor):
+        self._presupuesto = valor
+    
 
     def construir_edificio(self, edificio : Edificio):
         coste = edificio.coste_construccion
 
         if self.presupuesto > coste:
             self.edificios.append(edificio) # !
-            self.presupuesto -= coste
+            self.presupuesto = self.presupuesto - coste
             return True
         
         return False

@@ -76,6 +76,11 @@ class Viviendas(Edificio):
         self._capacidad = capacidad
         self._num_hogares = num_hogares
 
+
+    def __str__(self):
+        return f"{self.nombre}"
+    
+
     @property
     def capacidad(self) -> int:
         return self._capacidad
@@ -91,9 +96,6 @@ class Viviendas(Edificio):
     @num_hogares.setter
     def num_hogares(self, valor) -> int:
         self._num_hogares = valor
-
-    def __str__(self):
-        return super().__str__()
 
     def calcular_ingresos(self):
         return self._PRECIO_ALQUILER * self.num_hogares
