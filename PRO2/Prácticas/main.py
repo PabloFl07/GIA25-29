@@ -36,38 +36,66 @@ número aleatorio entre 1 y 5, que se podrán instalar si hay oficinas disponibl
 que no haya oficinas para todas se instalarán las que quepan)
 """
 
-def random_edificio(tipo : str):
 
-
-    dispatch = {
-        "viviendas" : (random.choice(["Hola" , "Juan"]), random.randint(500000, 1000000), random.randint(1000 , 5000), random.randint(10 , 20), random.randint( 90 , 140), random.randint( 15, 40)),
-        "oficinas" : (random.choice(["mercadona" , "arenal"]), random.randint(700000, 1200000), random.randint(5000 , 12000), random.randint(5 , 10), random.randint( 5 , 12), random.randint( 3000, 9000)),
-        "equipamiento" : (random.choice(["almacen" , "estacion"]), random.randint(300000, 2300000), random.randint(9000 , 14000), random.randint(20 , 30), random.choice(["servicios", "transporte"]), random.randint( 10, 50))
-    }
-
-    return dispatch[tipo]
-
-
-
-def estructura_inicial(ciudad):
-    lista = ["viviendas", "viviendas", "oficinas","equipamiento"]
-
-    dispatch = {
-        "viviendas" : Viviendas,
-        "oficinas" : Oficinas,
-        "equipamiento" : Equipamiento
-    }
-
-    for i in lista:
-        a , b , c , d , e , f = random_edificio("viviendas")
-        ciudad.construir_edificio(dispatch[i](a , b , c , d , e , f )) 
+def random_viviendas():
+    nombres = ["Casa", "Piso", "Chalet", "Mansion"]
     
+    return Viviendas(random.choice(nombres), random.randint(500000, 1000000), random.randint(1000 , 5000), random.randint(10 , 20), random.randint( 90 , 140), random.randint( 15, 40))
 
+def random_oficinas():
+    nombres = ["Mercadona", "Arenal", "Sanbrandan"]
+
+    return Oficinas(random.choice(nombres), random.randint(700000, 1200000), random.randint(5000 , 12000), random.randint(5 , 10), random.randint( 5 , 12), random.randint( 3000, 9000))
+
+def random_equipamiento():
+    nombres = ["Guarida", "Mausoleo", "Pene"]
+
+    return Equipamiento(random.choice(nombres), random.randint(300000, 2300000), random.randint(9000 , 14000), random.randint(20 , 30), random.choice(["servicios", "transporte"]), random.randint( 10, 50))
+    
+def estructura_inicial(ciudad):
+    ciudad.construir_edificio(random_viviendas())
+    ciudad.construir_edificio(random_viviendas())
+    ciudad.construir_edificio(random_oficinas())
+    ciudad.construir_edificio(random_equipamiento())
+    
 
 def Simulacion():
     pass
     
+def inmigracion(ciudad):
+    if random.random() <= 0.40:
+        ciudad.habitantes = ciudad.habitantes + random.randint(5, 200)
 
+def emigracion(ciudad):
+    probabilidad = 0.20 if ciudad.felicidad > 40 else 0.35
+
+    if random.random() <= probabilidad:
+        emigrantes = random.random(5 , min(ciudad.habitantes, 200))
+        ciudad.habitantes = ciudad.habitantes - emigrantes
+
+def creacion_empresas():
+    if random.random() <= 0.30:
+        empresas = random.random(1,5)
+
+        if ciudad.obtener_capacidad_oficinas() == 0:
+            print("No hay capacidad para ninguna empresa")
+
+        while empresas > 0 and ciudad.obtener_capacidad_oficinas() > 0:
+            for edificio in ciudad.edificios:
+                if isinstance(edificio, Oficinas):
+                    asignadas = edificio.asignar_empresas(empresas)
+                    empresas -= asignadas
+
+def cierre_empresas():
+    if random.random() <= 0.15:
+        empresas = random.random(1,3)
+
+        if ciudad.obtener_empresas_actuales > empresas:
+            while empresas > 0:
+                for edificio in ciudad.edificios:
+                    if isinstance(edificio, Oficinas):
+                        asignadas = edificio.asignar_empresas(empresas)
+                        empresas -= asignadas
 
 
 if __name__ == "__main__":
@@ -109,6 +137,7 @@ if __name__ == "__main__":
     estructura_inicial(ciudad)
 
     for m in range(NUM_MESES):
+
         print(f"MES {m}")
         print(f"HABITANTES: {ciudad.habitantes} | FELICIDAD: {ciudad.felicidad} | PRESUPUESTO: {ciudad.presupuesto}")
         pass

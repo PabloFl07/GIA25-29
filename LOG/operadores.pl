@@ -18,7 +18,7 @@ eval(A,B,C, not K, 1)  :- eval(A,B,C, K, 0).
 
 % AND
 eval(A,B,C, F & G, 0)  :- eval(A,B,C, G, 0); eval(A,B,C, F, 0).
-eval(A,B,C, F & G, 1)  :- eval(A,B,C, F, 1), eval(A,B,C, G,1).
+eval(A,B,C, F & G, 1)  :- eval(A,B,C, F, 1), eval(A,B,C, G, 1).
 
 % OR
 eval(A,B,C, F v G, 0)  :- eval(A,B,C, F, 0), eval(A,B,C, G,0).
@@ -26,3 +26,9 @@ eval(A,B,C, F v G, 1)  :- eval(A,B,C, F, 1); eval(A,B,C, G,1).
 
 
 % Hacer el implica sin tabla de verdad
+eval(A,B,C, F -> G, 0) :- eval(A,B,C, F, 1), eval(A,B,C,G,0).
+eval(A,B,C, F -> G, 1) :- eval(A,B,C, F, 0), eval(A,B,C,G,1).
+
+eval(A,B,C,F -> G, 1) :- eval(A,B,C, (not F) v G, 1).
+
+eval(A,B,C, F <> G, V ) :- eval(A,B,C, (F -> G) & (G -> F), V).

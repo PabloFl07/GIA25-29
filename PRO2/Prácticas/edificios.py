@@ -9,13 +9,20 @@ class Edificio(ABC):
         coste_mantenimiento: int,
         impacto_felicidad: int,
     ):
-        self._nombre = nombre
-        self._coste_construccion = coste_construccion
-        self._coste_mantenimiento = coste_mantenimiento
-        self._impacto_felicidad = impacto_felicidad
+        self.nombre = nombre
+        self.coste_construccion = coste_construccion
+        self.coste_mantenimiento = coste_mantenimiento
+        self.impacto_felicidad = impacto_felicidad
+
+
+    def __str__(self) -> str:
+        return f"[{self.__class__.__name__}] {self.nombre}"
 
     def obtener_informacion(self):
-        return f"Nombre: {self._nombre}, Coste de construcción: {self._coste_construccion}, Coste de mantenimiento: {self._coste_mantenimiento}, Impacto en felicidad: {self._imacto_felicidad}"
+        return f"Nombre: {self.nombre}, Coste de construcción: {self.coste_construccion}, Coste de mantenimiento: {self.coste_mantenimiento}, Impacto en felicidad: {self.impacto_felicidad}"
+
+
+
 
     @property
     def nombre(self) -> str:
@@ -35,18 +42,26 @@ class Edificio(ABC):
 
     @nombre.setter
     def nombre(self, valor: str) -> None:
+        if not isinstance(valor, str):
+            raise ValueError("") # !
         self._nombre = valor
 
     @coste_construccion.setter
     def coste_construccion(self, valor: int) -> None:
+        if not isinstance(valor, int):
+            raise ValueError("") # !
         self._coste_construccion = valor
 
     @coste_mantenimiento.setter
     def coste_mantenimiento(self, valor: int) -> None:
+        if not isinstance(valor, int):
+            raise ValueError("") # !
         self._coste_mantenimiento = valor
 
     @impacto_felicidad.setter
     def impacto_felicidad(self, valor: int) -> None:
+        if not isinstance(valor, int):
+            raise ValueError("") # !
         self._impacto_felicidad = valor
 
     @abstractmethod
@@ -54,7 +69,7 @@ class Edificio(ABC):
         pass
 
     @abstractmethod
-    def obtener_capacidad_disponible() -> int:
+    def obtener_capacidad_disponible(self) -> int:
         pass
 
 
@@ -73,13 +88,12 @@ class Viviendas(Edificio):
         super().__init__(
             nombre, coste_construccion, coste_mantenimiento, impacto_felicidad
         )
-        self._capacidad = capacidad
-        self._num_hogares = num_hogares
+        self.capacidad = capacidad
+        self.num_hogares = num_hogares
 
 
     def __str__(self):
-        return f"{self.nombre}"
-    
+        return super().__str__
 
     @property
     def capacidad(self) -> int:
@@ -91,10 +105,14 @@ class Viviendas(Edificio):
     
     @capacidad.setter
     def capacidad(self, valor : int) -> int:
+        if not isinstance(valor, int):
+            raise ValueError("") # !
         self._capacidad = valor
 
     @num_hogares.setter
-    def num_hogares(self, valor) -> int:
+    def num_hogares(self, valor : int) -> int:
+        if not isinstance(valor, int):
+            raise ValueError("") # !
         self._num_hogares = valor
 
     def calcular_ingresos(self):
@@ -117,9 +135,13 @@ class Oficinas(Edificio):
         super().__init__(
             nombre, coste_construccion, coste_mantenimiento, impacto_felicidad
         )
-        self._capacidad_oficinas = capacidad_oficinas
-        self._empresas_actuales = 0  # ! 0 por defecto
-        self._alquiler_por_oficina = alquiler_por_oficina
+        self.capacidad_oficinas = capacidad_oficinas
+        self.empresas_actuales = 0  # ! 0 por defecto
+        self.alquiler_por_oficina = alquiler_por_oficina
+
+
+    def __str__(self):
+        return super().__str__()
 
     @property
     def capacidad_oficinas(self) -> int:
@@ -136,18 +158,23 @@ class Oficinas(Edificio):
 
     @capacidad_oficinas.setter
     def capacidad_oficinas(self, valor : int) -> int:
+        if not isinstance(valor, int):
+            raise ValueError("") # !
         self._capacidad_oficinas = valor
 
     @empresas_actuales.setter
     def empresas_actuales(self, valor : int) -> int:
+        if not isinstance(valor, int):
+            raise ValueError("") # !
         self._empresas_actuales = valor
 
     @alquiler_por_oficina.setter
     def alquiler_por_oficina(self, valor) -> int:
+        if not isinstance(valor, int):
+            raise ValueError("") # !
         self._alquiler_por_oficina = valor
 
-    def __str__(self):
-        return super().__str__()
+
 
     def calcular_ingresos(self):
         """
@@ -165,11 +192,11 @@ class Oficinas(Edificio):
             self.empresas_actuales = self.capacidad_oficinas
             sobran = cantidad - disponibles
 
-            return f"Empresas asignadas: {cantidad - sobran}"
+            return cantidad - sobran
 
         self.empresas_actuales = self._empresas_actuales + cantidad
 
-        return f"Empresas asignadas: {cantidad}"
+        return cantidad
 
     def eliminar_empresas(self, cantidad: int) -> int:
 
@@ -177,12 +204,11 @@ class Oficinas(Edificio):
             sobran = -(self.empresas_actuales - cantidad)
             self.empresas_actuales = 0
 
-            return f"Empresas asignadas: {cantidad - sobran}"
+            return cantidad - sobran
 
         self.empresas_actuales = self.empresas_actuales - cantidad
 
-        return f"Empresas tras la incorporación: {cantidad}"
-
+        return cantidad
 
 class Equipamiento(Edificio):
     _PRECIO_ALQUILER = 0
@@ -199,8 +225,12 @@ class Equipamiento(Edificio):
         super().__init__(
             nombre, coste_construccion, coste_mantenimiento, impacto_felicidad
         )
-        self._tipo = tipo
-        self._capacidad_uso = capacidad_uso
+        self.tipo = tipo
+        self.capacidad_uso = capacidad_uso
+
+
+    def __str__(self):
+        return super().__str__()
 
     @property
     def tipo(self):
@@ -212,14 +242,15 @@ class Equipamiento(Edificio):
     
     @tipo.setter
     def tipo(self, valor : str) -> None:
+        if not isinstance(valor, str):
+            raise ValueError("") # !
         self._tipo = valor
 
     @capacidad_uso.setter
     def capacidad_uso(self, valor : int) -> None:
+        if not isinstance(valor, int):
+            raise ValueError("") # !
         self._capacidad_uso = valor
-
-    def __str__(self):
-        return super().__str__()
 
     def calcular_ingresos(self):
         return 0

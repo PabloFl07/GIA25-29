@@ -8,11 +8,11 @@ class Ciudad:
     _FELICIDAD_MEDIA = 50
 
     def __init__(self, nombre : str, habitantes : int, presupuesto: int, felicidad: int, edificios: list):
-        self._nombre = nombre
-        self._habitantes = habitantes
-        self._presupuesto = presupuesto
-        self._felicidad = felicidad
-        self._edificios = edificios
+        self.nombre = nombre
+        self.habitantes = habitantes
+        self.presupuesto = presupuesto
+        self.felicidad = felicidad
+        self.edificios = edificios
 
 
     def __str__(self):
@@ -42,13 +42,30 @@ class Ciudad:
     @presupuesto.setter
     def presupuesto(self, valor):
         self._presupuesto = valor
+
+    @nombre.setter
+    def nombre(self, valor) -> str:
+        self._nombre = valor
+
+    @habitantes.setter
+    def habitantes(self, valor) -> int:
+        self._habitantes = valor
+
+    @felicidad.setter
+    def felicidad(self, valor) -> int:
+        self._felicidad = valor
+
+    @edificios.setter
+    def edificios(self, valor) -> int:
+        self._edificios = valor
+
     
 
     def construir_edificio(self, edificio : Edificio):
         coste = edificio.coste_construccion
 
         if self.presupuesto > coste:
-            self.edificios.append(edificio) # !
+            self.edificios.append(edificio)
             self.presupuesto = self.presupuesto - coste
             return True
         
@@ -64,8 +81,7 @@ class Ciudad:
 
         ingresos += self._IMPUESTO_POR_HABITANTE * self.habitantes
 
-
-        self.presupuesto = ingresos - gastos
+        self.presupuesto = self.presupuesto + (ingresos - gastos)
     
 
     def actualizar_felicidad(self): # !!
@@ -73,7 +89,7 @@ class Ciudad:
         if self.habitantes <= 0:
             self.felicidad = self.FELICIDAD_MEDIA
 
-        felicidad_total = 0
+        felicidad_total = self.felicidad
         num_viviendas = 0
         num_equipamientos = 0
 
@@ -103,6 +119,10 @@ class Ciudad:
         else:
             felicidad_total -= 1
 
+        if self.felicidad > 100:
+            felicidad_total = 100
+        elif self.felicidad < 0:
+            felicidad_total = 0
 
         self.felicidad = felicidad_total
 
@@ -129,10 +149,6 @@ class Ciudad:
                 empresas_totales += edificio.empresas_actuales
 
         return empresas_totales
-
-
-
-
 
 if __name__ == "__main__":
     pass
