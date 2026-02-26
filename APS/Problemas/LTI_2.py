@@ -4,7 +4,7 @@ from scipy import signal
 from scipy.io.wavfile import read
 import sounddevice as sd
 
-tipocanal = 7
+tipocanal = 5
 tiposenal = 0 #1:coseno 2:audio
 # ===== CANAL =====
 if tipocanal == 1:
@@ -98,7 +98,7 @@ plt.title(f"Respuesta al impulso h[n] — {nombre_canal}")
 plt.xlabel("Tiempo (s)")
 plt.ylabel("Amplitud")
 plt.grid()
-#plt.show()
+plt.show()
 
 # ===== AUDIO =====
 if tiposenal == 1:

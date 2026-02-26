@@ -7,12 +7,12 @@ class Ciudad:
     _RATIO_EQUIPAMIENTO = 0.01
     _FELICIDAD_MEDIA = 50
 
-    def __init__(self, nombre : str, habitantes : int, presupuesto: int, felicidad: int, edificios: list):
+    def __init__(self, nombre : str, habitantes : int, presupuesto: int):
         self.nombre = nombre
         self.habitantes = habitantes
         self.presupuesto = presupuesto
-        self.felicidad = felicidad
-        self.edificios = edificios
+        self.felicidad = 0
+        self.edificios = []
 
 
     def __str__(self):
@@ -53,6 +53,10 @@ class Ciudad:
 
     @felicidad.setter
     def felicidad(self, valor) -> int:
+        if valor > 100:
+            valor = 100
+        elif valor < 0:
+            valor = 0
         self._felicidad = valor
 
     @edificios.setter
@@ -87,7 +91,7 @@ class Ciudad:
     def actualizar_felicidad(self): # !!
 
         if self.habitantes <= 0:
-            self.felicidad = self.FELICIDAD_MEDIA
+            self.felicidad = self._FELICIDAD_MEDIA
 
         felicidad_total = self.felicidad
         num_viviendas = 0
@@ -106,7 +110,7 @@ class Ciudad:
         if len(self.edificios) != 0:
             capacidad_total = self.obtener_capacidad_oficinas() + self.obtener_capacidad_viviendas()
 
-        if self.habitantes / capacidad_total > self.UMBRAL_OCUPACION:
+        if self.habitantes / capacidad_total > self._UMBRAL_OCUPACION:
             felicidad_total -= 10
         else:
             felicidad_total += 1
@@ -114,15 +118,10 @@ class Ciudad:
         if num_viviendas == 0:
             felicidad_total -= 30
 
-        if num_equipamientos / 100 > self.RATIO_EQUIPAMIENTO:
+        if num_equipamientos / 100 > self._RATIO_EQUIPAMIENTO:
             felicidad_total += 1
         else:
             felicidad_total -= 1
-
-        if self.felicidad > 100:
-            felicidad_total = 100
-        elif self.felicidad < 0:
-            felicidad_total = 0
 
         self.felicidad = felicidad_total
 
@@ -138,7 +137,7 @@ class Ciudad:
         capacidad_oficinas = 0
         for edificio in self.edificios:
             if isinstance(edificio, Oficinas):
-                capacidad_oficinas += edificio.capacidad
+                capacidad_oficinas += edificio.capacidad_oficinas
 
         return capacidad_oficinas
 

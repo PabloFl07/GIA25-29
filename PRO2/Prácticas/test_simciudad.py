@@ -4,7 +4,6 @@ from edificios import Viviendas, Oficinas, Equipamiento, Edificio
 
 class TestEdificios(unittest.TestCase):
 
-
     def test_edificios(self):
         vivienda = Viviendas("Casa de Pablo", 400000 , 1000 , 50 , 100 , 20)
         oficina = Oficinas("Coworking La Grela", 500000, 2000, 30 , 145 , 12000)
@@ -77,7 +76,7 @@ class TestEdificios(unittest.TestCase):
 
         self.assertIn(vivienda,ciudad.edificios)
         self.assertIn(oficina,ciudad.edificios)
-        self.assertIn(equipamiento,ciudad.edificios)
+        self.assertNotIn(equipamiento,ciudad.edificios)
 
 
     def test_actualizar_presupuesto(self):
