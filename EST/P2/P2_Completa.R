@@ -98,7 +98,6 @@ str(movil)
 
 #' Por ejemplo:
 
-
 movil <- read.table("movil.txt", header = TRUE)
 # movil <- read.csv2(movil, file = "movil.csv")
 str(movil)
@@ -119,20 +118,34 @@ movil$nsatisfa <- factor(movil$nsatisfa,
 #' Para manipular factores (variables cualitativas) pueden resultar de interés las herramientas en el paquete [`forcats`](https://forcats.tidyverse.org) de la colección [`tidyverse`](https://tidyverse.org).
 #' 
 #' 
-#' ### Ejercicio 
+#' ### Ejercicio 2.2.1
 #' 
 #' El conjunto de datos `ecars` almacenado en el archivo *ecars.RData*,  contiene información sobre 103 vehículos eléctricos vendidos en Europa (proporcionada por [ev-database.org](https://ev-database.org), y también disponible en [kaggle](https://www.kaggle.com/datasets/geoffnel/evs-one-electric-vehicle-dataset)).
 #' 
 #' a) Carga estos datos en R y clasifica las variables en cualitativas o cuantitativas. 
 #'    Puedes acceder a información sobre las variables y la estructura del conjunto de datos con los comandos:
 
-# as.data.frame(attr(ecars, "variable.labels"))
-# str(ecars)
+load("ecars.RData")
+names(ecars)
+
+as.data.frame(attr(ecars, "variable.labels"))
+str(ecars)
 
 #'    
 #' b) Crea una nueva variable `logprecio` que contenga el precio en escala logarítmica (`log(ecars$precio)`).
+
+hist(ecars$precio)
+
+# Crea una nueva variable `logprecio`
+
+ecars$logprecio <- log(ecars$precio)
+hist(ecars$logprecio)
+
 #' 
 #' c) Almacena el conjunto de datos en el fichero *ecarsb.RData*. 
+
+save(ecars, file = "ecarsb.RData")
+
 #' 
 #' 
 #' ## Estadística descriptiva univariante
@@ -148,6 +161,11 @@ movil$nsatisfa <- factor(movil$nsatisfa,
 #' Por ejemplo, podemos obtener estadísticos descriptivos básicos de las variables del conjunto de datos con la función `summary()`:
 
 summary(movil)
+
+# summary(movil$sexo)
+# summary(movil$precio)
+
+# 25/02 ···························
 
 #' 
 #' 
@@ -184,6 +202,11 @@ summary(movil)
 #' Podemos obtener la tabla de frecuencias absolutas con la función `table()`.
 #' Por ejemplo:
 
+load("movil.RData")
+str(movil)
+summary(movil)
+
+
 frec <- table(movil$marca)
 frec
 
@@ -195,6 +218,8 @@ frec/sum(frec) # prop.table(frec)
 porc <- 100*frec/sum(frec)
 porc
 
+barplot(porc)
+
 #' Es decir, hay 20 móviles de la marca Xiaomi, lo que supone un 40\% de las observaciones (la categoría más frecuente, denominada **moda**). 
 #' La categoría menos frecuente es Apple con un 24\%.
 #' 
@@ -203,6 +228,13 @@ porc
 #' Por ejemplo, para la variable `ncamaras` (discreta) obtendríamos:
 
 frec <- table(movil$ncamaras) # Frecuencias absolutas
+frec
+cumsum(frec) # Frecuencias absolutas acumuladas
+porc <- 100*frec/sum(frec)    # Porcentajes (equiv. frecuencias relativas)
+porc
+cumsum(porc)  # Porcentajes acumulados (equiv. frecuencias relativas acumuladas)
+
+frec <- table(movil$nsatisfa) # Frecuencias absolutas
 frec
 cumsum(frec) # Frecuencias absolutas acumuladas
 porc <- 100*frec/sum(frec)    # Porcentajes (equiv. frecuencias relativas)
@@ -220,11 +252,7 @@ movil$preciocat <- cut(movil$precio,
 frec <- table(movil$preciocat)
 frec
 100*frec/sum(frec)
-porcentajes = cumsum(100*frec/sum(frec))
-
-porc
-
-
+cumsum(100*frec/sum(frec))
 
 #' 
 #' 
@@ -236,35 +264,53 @@ porc
 #' Podemos generar este gráfico en R con la función `pie()`.
 #' Por ejemplo:
 
-old.par <- par(mfrow = c(1,2))
+old.par <- par(mfrow = c(1,2)) # En la práctica mejor gráficos individuales
+
 frec <- table(movil$sexo)
+frec
 pie(frec)
-labels <- paste0(names(frec), " (", 100*frec/sum(frec), "%)")
-pie(frec, main = "Sexo", labels = labels)                 
+
+porc <- 100*frec/sum(frec)
+porc
+
+# Adicionalmente (estética)
+labels <- paste0(names(porc), " (", round(porc, 1), "%)")
+pie(porc, main = "Sexo", labels = labels)                 
+
 par(old.par)
 
 #' 
 #' En general se suele emplear un **gráfico de barras**: en el eje X (abscisas) se representan las modalidades $c_i$ y en el eje Y (ordenadas) las frecuencias absolutas $n_i$ (o relativas $f_i$), y se dibujan barras verticales con altura igual a la frecuencia considerada.
 #' 
 
-old.par <- par(mfrow = c(1,2))
+# old.par <- par(mfrow = c(1,2))
+
 frec <- table(movil$marca)
-barplot(frec, ylab = "Frecuencia absolutas", xlab = "Marca")
+frec
+# barplot(frec, ylab = "Frecuencia absolutas", xlab = "Marca")
+
 porc <- 100*frec/sum(frec)    # Porcentajes (equiv. frecuencias relativas)
+porc
+
 barplot(porc, ylab = "Porcentajes", xlab = "Marca")
-par(old.par)
+
+# par(old.par)
 
 #' 
 #' En el caso de variables ordinales o discretas también se pueden representar las frecuencias acumuladas, en lo que se conoce como **diagrama de frecuencias acumuladas**.
 #' 
-loa
-old.par <- par(mfrow = c(1,2))
+
+# old.par <- par(mfrow = c(1,2))
+
 frec <- table(movil$nsatisfa)
-barplot(frec, ylab = "Frecuencia absolutas", xlab = "Nivel de satisfacción")
+frec
+# barplot(frec, ylab = "Frecuencia absolutas", xlab = "Nivel de satisfacción")
 porc <- 100*frec/sum(frec)    # Porcentajes (equiv. frecuencias relativas)
+porc
 barplot(cumsum(porc), ylab = "Porcentajes acumulados", 
         xlab = "Nivel de satisfacción")
-par(old.par)
+
+# par(old.par)
 
 #' 
 #' 
@@ -279,18 +325,55 @@ par(old.par)
 #' 
 #' b) Realiza un análisis descriptivo de las variables `segmento`, `cargarapida` y 
 #'    `traccion` (tabla de frecuencias y gráfico de barras o sectores según consideres).
+#'    
+#'    
 
 
-#' 
+load("ecars.RData")
+str(ecars)
+summary(ecars)
+
+
+frec_1 = table(ecars$segmento)
+porc = 100*frec_1/sum(frec_1)
+round(porc,1)
+
+barplot(porc,ylab="Porcentajes")
+pie(porc, labels=labels)
+
+frec_2 = table(ecars$cargarapida)
+porc = 100*frec_2/sum(frec_2)
+round(porc,1)
+
+barplot(porc,ylab="Porcentajes")
+pie(porc, labels=labels)
+
+frec_3 = table(ecars$traccion)
+porc = 100*frec_3/sum(frec_3)
+round(porc,1)
+
+barplot(porc,ylab="Porcentajes")
+pie(porc, labels=labels)
+
+
 #' c) Realiza un análisis descriptivo de la variable `asientos`, incluyendo 
 #'    porcentajes acumulados. 
+#'    
+#'    
+frec_4 = table(ecars$asientos)
+porc = 100*frec_4/sum(frec_4)
+round(porc,1)
+
+porc_acum = cumsum(porc)
+round(porc_acum,1)
+barplot(porc_acum,ylab="Porcentajes")
 
 
 #' 
 #' 
 #' ## Descripción de variables continuas
 #' 
-#' En esta sección se estudia el tratamiento de variables continuas o discretas que toman muchos valores.
+#' 2.5 En esta sección se estudia el tratamiento de variables continuas o discretas que toman muchos valores.
 #' 
 #' ### Histogramas
 #' 

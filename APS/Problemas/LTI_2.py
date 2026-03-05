@@ -4,7 +4,7 @@ from scipy import signal
 from scipy.io.wavfile import read
 import sounddevice as sd
 
-tipocanal = 5
+tipocanal = 6
 tiposenal = 0 #1:coseno 2:audio
 # ===== CANAL =====
 if tipocanal == 1:
@@ -42,17 +42,16 @@ elif tipocanal == 4:
     a = 0.999
     Lh = 22050
     fh = 22050
-    nh = np.arange(Lh)/fh
-    h = a ** np.arange(Lh)
-
+    nh = np.arange(Lh)/fh # EJE X
+    h = a ** np.arange(Lh) # a ^ 1, 2 ...
 
 elif tipocanal == 5:
     nombre_canal = "Eco múltiple (3 deltas)"
-    a1, a2, a3 = 1, 0.4, 0.2
-    n1, n2, n3 = 0.1, 0.5, 0.7
+    a1, a2, a3 = 1, 0.4, 0.2   # AMPLITUD DEL IMPULSO
+    n1, n2, n3 = 0.1, 0.5, 0.7 # INSTANTES DE TIEMPO DONDE HAY IMPULSO
     fh = 22050
     Lh = 22050
-    nh = np.arange(Lh)/fh
+    nh = np.arange(Lh)/fh # EJE X
     h = a1 * (nh == n1) + a2 * (nh == n2) + a3 * (nh == n3)
 
 elif tipocanal == 6:
@@ -64,11 +63,13 @@ elif tipocanal == 6:
     nh = np.arange(Lh)/fh
     h1 = a1 * (nh == n1) + a2 * (nh == n2) + a3 * (nh == n3)
     a = -0.9995
-    h2 = a ** np.arange(Lh)
-     
-    # COMPLETAR
+    h2 = a ** np.arange(Lh) # Lo elevamos a tiempo discreto para evitar N Complejos
+
+    h = np.convolve(h1, h2)
 
     nh = np.arange(len(h))/fh
+     
+    # COMPLETAR
     
 elif tipocanal == 7:
     nombre_canal = "Conexión en paralelo"
@@ -92,6 +93,7 @@ elif tipocanal == 7:
     # TAREA PROPUESTA
     
 # ===== PLOT h =====
+
 plt.figure(1)
 plt.stem(nh, h)
 plt.title(f"Respuesta al impulso h[n] — {nombre_canal}")
