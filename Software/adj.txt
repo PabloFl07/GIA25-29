@@ -1,0 +1,293 @@
+sudo pacman -Syu
+:: Sincronizando las bases de datos de los paquetes...
+ cachyos-v3 está actualizado
+ cachyos-extra-v3                                                 4,4 MiB  18,3 MiB/s 00:00 [------------------------------------------------------] 100%
+ cachyos-core-v3 está actualizado
+ cachyos está actualizado
+ core está actualizado
+ extra                                                            8,5 MiB  23,0 MiB/s 00:00 [------------------------------------------------------] 100%
+ multilib está actualizado
+:: Iniciando actualización completa del sistema...
+advertencia: flameshot: ignorando la actualización del paquete (13.3.0-2 => 14.0.0-1.1)
+resolviendo dependencias...
+buscando conflictos entre paquetes...
+
+Paquete (112)                              Versión antigua           Versión nueva             Diferencia neta
+
+cachyos-extra-v3/appstream                 1.2.0-1.1                 1.2.1-1.1                        0,08 MiB
+core/automake                              1.18.1-1                  1.19-1                           0,03 MiB
+cachyos-v3/bash                            5.3.15-2                  5.3.20-2                         0,01 MiB
+extra/bpf                                  7.2.7-1                   7.2.8-2                          0,00 MiB
+cachyos-core-v3/ca-certificates-mozilla    3.129-1.1                 3.130-1.1                        0,00 MiB
+cachyos/cachyos-plymouth-bootanimation     2-3                       2-4                              0,00 MiB
+cachyos/cachyos-plymouth-theme             1-1                       1-2                              0,00 MiB
+cachyos/cachyos-settings                   1:1.4.0-1                 1:1.4.1-1                        0,00 MiB
+cachyos-extra-v3/cairo                     1.18.4-1.1                1.18.6-1.1                       0,29 MiB
+cachyos-extra-v3/cifs-utils                7.5-1.1                   7.8-1.1                          0,01 MiB
+cachyos-extra-v3/clang                     22.1.8-2                  23.1.1-1.1                      62,71 MiB
+cachyos-extra-v3/compiler-rt               22.1.8-1.1                23.1.1-1.1                       1,92 MiB
+cachyos-extra-v3/containerd                2.4.0-1.1                 2.4.1-1.1                        0,01 MiB
+cachyos-core-v3/coreutils                  9.11-2.1                  9.12-2.1                         0,06 MiB
+extra/cpupower                             7.2.7-1                   7.2.8-2                          0,00 MiB
+cachyos-extra-v3/docker                    1:29.8.1-1.1              1:29.8.2-1.1                     0,13 MiB
+cachyos/downgrade                          12.0.2-1                  12.0.3-1                         0,00 MiB
+cachyos-extra-v3/egl-wayland               4:1.1.22-1.1              4:1.1.23-1.1                     0,00 MiB
+extra/electron43                           43.7.3-1                  43.7.7-1                         0,03 MiB
+cachyos-extra-v3/f2fs-tools                1.16.0-4.1                1.17.0-1.1                       0,17 MiB
+cachyos-extra-v3/fastfetch                 2.68.1-1.1                2.69.0-1.1                       0,02 MiB
+cachyos-extra-v3/firefox                   156.0.1-1.1               157.0-1.1                        1,91 MiB
+cachyos-extra-v3/fribidi                   1.0.16-2.1                1.0.17-1.1                       0,01 MiB
+cachyos-extra-v3/gdb                       17.2-1.1                  18.1-1.1                         0,13 MiB
+cachyos-extra-v3/gdb-common                17.2-1.1                  18.1-1.1                         0,03 MiB
+cachyos-extra-v3/git                       2.55.0-1.1                2.56.0-1.1                       2,37 MiB
+extra/glances                              4.5.6-1                   4.5.7-1                         -0,07 MiB
+cachyos-v3/glibc                           2.44+r24+g16be1518495f-1  2.44+r50+g1848099f063e-3         0,00 MiB
+cachyos-extra-v3/gspell                    1.14.4-1.1                1.14.5-1.1                       0,00 MiB
+cachyos-extra-v3/gthumb                    3.12.11-1.1               3.12.12-1.1                      0,00 MiB
+cachyos-extra-v3/harfbuzz                  14.5.0-1.1                14.5.1-1.1                       0,00 MiB
+cachyos-extra-v3/hunspell                  1.7.3-1.1                 1.7.4-1.1                       -0,19 MiB
+extra/hwdetect                             2025.08.16.1333-1         2026.10.01.1149-1                0,00 MiB
+cachyos-extra-v3/hwinfo                    25.5-1.1                  26.0-1.1                         0,00 MiB
+cachyos-extra-v3/hyprland-guiutils         0.2.2-3.1                 0.2.2-4.1                        0,00 MiB
+cachyos-extra-v3/hyprtoolkit               0.5.4-6.1                 0.6.0-1.1                        0,31 MiB
+cachyos-extra-v3/imagemagick               7.1.2.31-2.1              7.1.2.32-1.1                     0,16 MiB
+cachyos-extra-v3/intel-media-driver        26.2.4-1.1                26.3.5-1.1                       0,00 MiB
+extra/intel-ucode                          20260812-1                20260925-1                       0,00 MiB
+cachyos-v3/jdk-openjdk                     26.0.2.u10-2              27.u35-2                         2,18 MiB
+cachyos-extra-v3/js140                     140.16.0-1.1              140.17.0-1.1                     0,00 MiB
+cachyos-extra-v3/kitty                     0.48.2-1.1                0.49.2-1.1                      11,15 MiB
+cachyos-extra-v3/kitty-shell-integration   0.48.2-1.1                0.49.2-1.1                       0,00 MiB
+cachyos-extra-v3/kitty-terminfo            0.48.2-1.1                0.49.2-1.1                       0,00 MiB
+cachyos-extra-v3/ldb                       2:4.24.7-1.1              2:4.25.0-1.1                     0,00 MiB
+multilib/lib32-cairo                       1.18.4-1                  1.18.6-1                         0,14 MiB
+multilib/lib32-fribidi                     1.0.16-2                  1.0.17-1                         0,01 MiB
+cachyos-v3/lib32-glibc                     2.44+r24+g16be1518495f-1  2.44+r50+g1848099f063e-3         0,03 MiB
+multilib/lib32-harfbuzz                    14.5.0-1                  14.5.1-1                         0,00 MiB
+multilib/lib32-libpng                      1.6.58-2                  1.6.59-1                         0,00 MiB
+multilib/lib32-librsvg                     2:2.62.3-1                2:2.62.4-1                       0,00 MiB
+multilib/lib32-llvm-libs                   1:22.1.8-1                1:23.1.1-1                       1,24 MiB
+cachyos/lib32-mesa                         3:26.2.3-2                3:26.2.4-1                       0,00 MiB
+multilib/lib32-nss                         3.129-1                   3.130-1                          0,00 MiB
+multilib/lib32-openssl                     1:3.6.4-1                 1:3.6.5-1                        0,01 MiB
+multilib/lib32-pcre2                       10.48-1                   10.49-1                          0,00 MiB
+multilib/lib32-systemd                     261.3-1                   262-1                            0,03 MiB
+cachyos/lib32-vulkan-intel                 3:26.2.3-2                3:26.2.4-1                       0,00 MiB
+cachyos/lib32-vulkan-mesa-implicit-layers  3:26.2.3-2                3:26.2.4-1                       0,00 MiB
+cachyos-extra-v3/libcupsfilters            2.2.1-2.1                 2.2.1.r23.gdee3b387-1.1          0,00 MiB
+cachyos-extra-v3/libgsf                    1.14.58-1.1               1.14.60-1.1                      0,01 MiB
+cachyos-extra-v3/libmupdf                  1.28.4-1.1                1.28.5-1.1                       0,04 MiB
+extra/libnm                                1.58.1-1                  1.58.1-2                         0,00 MiB
+cachyos-extra-v3/libpng                    1.6.58-2.1                1.6.59-1.1                       0,00 MiB
+cachyos-extra-v3/librsvg                   2:2.62.3-1.1              2:2.62.4-1.1                    -0,07 MiB
+cachyos-extra-v3/librustls                 0.15.3-1.1                0.15.4-1.1                       0,05 MiB
+cachyos-extra-v3/libsrtp                   1:2.8.0-1                 1:2.8.1-1.1                      0,01 MiB
+extra/libvips                              8.18.6-2                  8.18.7-1                         0,00 MiB
+cachyos-extra-v3/libwbclient               2:4.24.7-1.1              2:4.25.0-1.1                     0,00 MiB
+cachyos-extra-v3/libwireplumber            0.5.17-2.1                0.5.18-1.1                       0,00 MiB
+cachyos/limine-mkinitcpio-hook             1.37.1-1                  1.39.0-1                        -3,18 MiB
+cachyos/limine-snapper-sync                1.31.0-1                  1.32.0-1                        -4,31 MiB
+cachyos-v3/linux-cachyos                   7.2.6-1                   7.2.8-2                          0,00 MiB
+cachyos-v3/linux-cachyos-headers           7.2.6-1                   7.2.8-2                          1,78 MiB
+cachyos-v3/linux-cachyos-nvidia-open       7.2.6-1                   7.2.8-2                          0,00 MiB
+cachyos-extra-v3/lld                       22.1.8-1.1                23.1.1-1.1                       0,20 MiB
+cachyos-v3/llvm                            22.1.8-2                  23.1.1-2                         3,34 MiB
+cachyos-v3/llvm-libs                       22.1.8-2                  23.1.1-2                         9,72 MiB
+cachyos/mesa                               3:26.2.3-1                3:26.2.4-1                       0,00 MiB
+core/mkinitcpio                            42-1                      42.1-1                           0,00 MiB
+extra/networkmanager                       1.58.1-1                  1.58.1-2                         0,00 MiB
+extra/noto-fonts                           1:2026.09.01-1            1:2026.10.01-1                   0,00 MiB
+cachyos-core-v3/nss                        3.129-1.1                 3.130-1.1                        0,02 MiB
+cachyos-extra-v3/openexr                   3.5.0-2.1                 3.5.1-1.1                        0,00 MiB
+cachyos-core-v3/openssl                    3.6.4-1.1                 3.6.5-1.1                        0,02 MiB
+cachyos-core-v3/pam                        1.7.2-2.1                 1.7.3-1.1                        0,03 MiB
+cachyos-extra-v3/pangomm-2.48              2.56.2-1.1                2.58.0-1.1                       0,01 MiB
+cachyos-extra-v3/parted                    3.7-1.1                   3.8-1.1                          0,13 MiB
+cachyos-core-v3/pcre2                      10.48-1.1                 10.49-1.1                        0,01 MiB
+cachyos-extra-v3/perl-clone                0.50-1.1                  0.51-1.1                         0,01 MiB
+cachyos/plymouth                           26.134.222-2.1            26.134.222-4                    -0,04 MiB
+cachyos-core-v3/ppp                        2.5.3-1.1                 2.5.4-1.1                        0,00 MiB
+cachyos-extra-v3/python-cbor2              6.1.4-1.1                 6.1.5-1.1                        0,00 MiB
+extra/python-dbus                          1.4.0-2                   1.5.0-1                          0,00 MiB
+cachyos-extra-v3/python-fonttools          4.65.0-1.1                4.66.1-1.1                       0,69 MiB
+cachyos-extra-v3/qpdf                      12.4.1-1.1                12.4.2-1.1                       0,00 MiB
+cachyos-extra-v3/runc                      1.5.1-1.1                 1.5.2-1.1                       -0,27 MiB
+cachyos-extra-v3/sdl_image                 1.2.12-9.1                1.2.12-10.1                      0,00 MiB
+cachyos/shelly                             3.1.4-1                   3.1.6-1                          0,44 MiB
+cachyos-extra-v3/smbclient                 2:4.24.7-1.1              2:4.25.0-1.1                     0,01 MiB
+extra/sof-firmware                         2026.09-1                 2026.09.1-1                      0,07 MiB
+core/systemd                               261.3-1                   262-1                            0,96 MiB
+core/systemd-libs                          261.3-1                   262-1                            0,04 MiB
+core/systemd-resolvconf                    261.3-1                   262-1                            0,00 MiB
+core/systemd-sysvcompat                    261.3-1                   262-1                            0,00 MiB
+cachyos-core-v3/tzdata                     2026d-1.1                 2026e-1.1                        0,00 MiB
+cachyos-extra-v3/vapoursynth               79-1.1                    80-1.1                           4,58 MiB
+cachyos-extra-v3/vpl-gpu-rt                26.2.4-1.1                26.3.5-1.1                       0,04 MiB
+cachyos/vulkan-intel                       3:26.2.3-1                3:26.2.4-1                      -0,01 MiB
+cachyos/vulkan-mesa-implicit-layers        3:26.2.3-1                3:26.2.4-1                       0,00 MiB
+cachyos-extra-v3/wireplumber               0.5.17-2.1                0.5.18-1.1                       0,03 MiB
+cachyos-extra-v3/zathura-pdf-mupdf         2026.07.18-3.1            2026.07.18-4.1                   0,00 MiB
+
+Tamaño total de la instalación:  3792,16 MiB
+Tamaño neto tras actualizar:       99,25 MiB
+
+:: ¿Continuar con la instalación? [S/n] S
+(112/112) comprobando las claves del depósito                                               [------------------------------------------------------] 100%
+(112/112) verificando la integridad de los paquetes                                         [------------------------------------------------------] 100%
+(112/112) cargando los archivos de los paquetes                                             [------------------------------------------------------] 100%
+(112/112) comprobando conflictos entre archivos                                             [------------------------------------------------------] 100%
+:: Ejecutando los «hooks» de preinstalación...
+(1/5) Performing snapper pre snapshots for the following configurations...
+Error de E/S (subvolume is not a btrfs subvolume).
+==> root: 
+(2/5) Waiting for limine-snapper-sync to finish...
+(3/5) Record kernels marked for removal in Limine
+(4/5) Removing linux initcpios...
+(5/5) Removing old entries from the info directory file...
+:: Procesando los cambios de los paquetes...
+(  1/112) actualizando tzdata                                                               [------------------------------------------------------] 100%
+(  2/112) actualizando glibc                                                                [------------------------------------------------------] 100%
+(  3/112) actualizando bash                                                                 [------------------------------------------------------] 100%
+(  4/112) actualizando libpng                                                               [------------------------------------------------------] 100%
+(  5/112) actualizando pcre2                                                                [------------------------------------------------------] 100%
+(  6/112) actualizando cairo                                                                [------------------------------------------------------] 100%
+(  7/112) actualizando harfbuzz                                                             [------------------------------------------------------] 100%
+(  8/112) actualizando fribidi                                                              [------------------------------------------------------] 100%
+(  9/112) actualizando systemd-libs                                                         [------------------------------------------------------] 100%
+( 10/112) actualizando openssl                                                              [------------------------------------------------------] 100%
+( 11/112) actualizando pam                                                                  [------------------------------------------------------] 100%
+( 12/112) actualizando librsvg                                                              [------------------------------------------------------] 100%
+( 13/112) actualizando openexr                                                              [------------------------------------------------------] 100%
+( 14/112) actualizando coreutils                                                            [------------------------------------------------------] 100%
+( 15/112) actualizando ca-certificates-mozilla                                              [------------------------------------------------------] 100%
+( 16/112) actualizando libvips                                                              [------------------------------------------------------] 100%
+( 17/112) actualizando appstream                                                            [------------------------------------------------------] 100%
+( 18/112) actualizando automake                                                             [------------------------------------------------------] 100%
+( 19/112) actualizando llvm-libs                                                            [------------------------------------------------------] 100%
+( 20/112) actualizando bpf                                                                  [------------------------------------------------------] 100%
+( 21/112) actualizando plymouth                                                             [------------------------------------------------------] 100%
+( 22/112) actualizando cachyos-plymouth-bootanimation                                       [------------------------------------------------------] 100%
+( 23/112) actualizando cachyos-plymouth-theme                                               [------------------------------------------------------] 100%
+( 24/112) actualizando systemd                                                              [------------------------------------------------------] 100%
+:: This is a systemd feature update. You may want to have a look at
+   NEWS for what changed, or if you observe unexpected behavior:
+     /usr/share/doc/systemd/NEWS
+( 25/112) actualizando cachyos-settings                                                     [------------------------------------------------------] 100%
+restarting services...
+( 26/112) actualizando libwbclient                                                          [------------------------------------------------------] 100%
+( 27/112) actualizando cifs-utils                                                           [------------------------------------------------------] 100%
+( 28/112) actualizando compiler-rt                                                          [------------------------------------------------------] 100%
+( 29/112) actualizando clang                                                                [------------------------------------------------------] 100%
+( 30/112) actualizando runc                                                                 [------------------------------------------------------] 100%
+( 31/112) actualizando containerd                                                           [------------------------------------------------------] 100%
+( 32/112) actualizando cpupower                                                             [------------------------------------------------------] 100%
+( 33/112) actualizando docker                                                               [------------------------------------------------------] 100%
+( 34/112) actualizando downgrade                                                            [------------------------------------------------------] 100%
+( 35/112) actualizando mesa                                                                 [------------------------------------------------------] 100%
+( 36/112) actualizando egl-wayland                                                          [------------------------------------------------------] 100%
+( 37/112) actualizando nss                                                                  [------------------------------------------------------] 100%
+( 38/112) actualizando electron43                                                           [------------------------------------------------------] 100%
+( 39/112) actualizando f2fs-tools                                                           [------------------------------------------------------] 100%
+( 40/112) actualizando fastfetch                                                            [------------------------------------------------------] 100%
+( 41/112) actualizando noto-fonts                                                           [------------------------------------------------------] 100%
+( 42/112) actualizando vapoursynth                                                          [------------------------------------------------------] 100%
+( 43/112) actualizando firefox                                                              [------------------------------------------------------] 100%
+( 44/112) actualizando gdb-common                                                           [------------------------------------------------------] 100%
+( 45/112) actualizando gdb                                                                  [------------------------------------------------------] 100%
+( 46/112) actualizando git                                                                  [------------------------------------------------------] 100%
+( 47/112) actualizando glances                                                              [------------------------------------------------------] 100%
+( 48/112) actualizando gspell                                                               [------------------------------------------------------] 100%
+( 49/112) actualizando gthumb                                                               [------------------------------------------------------] 100%
+( 50/112) actualizando hunspell                                                             [------------------------------------------------------] 100%
+( 51/112) actualizando hwdetect                                                             [------------------------------------------------------] 100%
+( 52/112) actualizando perl-clone                                                           [------------------------------------------------------] 100%
+( 53/112) actualizando hwinfo                                                               [------------------------------------------------------] 100%
+( 54/112) actualizando hyprtoolkit                                                          [------------------------------------------------------] 100%
+( 55/112) actualizando hyprland-guiutils                                                    [------------------------------------------------------] 100%
+( 56/112) actualizando imagemagick                                                          [------------------------------------------------------] 100%
+( 57/112) actualizando intel-media-driver                                                   [------------------------------------------------------] 100%
+( 58/112) actualizando intel-ucode                                                          [------------------------------------------------------] 100%
+advertencia: los permisos del directorio difieren respecto de /boot/
+sistema de archivos: 700  paquete: 755
+( 59/112) actualizando jdk-openjdk                                                          [------------------------------------------------------] 100%
+( 60/112) actualizando js140                                                                [------------------------------------------------------] 100%
+( 61/112) actualizando kitty-terminfo                                                       [------------------------------------------------------] 100%
+( 62/112) actualizando kitty-shell-integration                                              [------------------------------------------------------] 100%
+( 63/112) actualizando kitty                                                                [------------------------------------------------------] 100%
+( 64/112) actualizando ldb                                                                  [------------------------------------------------------] 100%
+( 65/112) actualizando lib32-glibc                                                          [------------------------------------------------------] 100%
+( 66/112) actualizando lib32-libpng                                                         [------------------------------------------------------] 100%
+( 67/112) actualizando lib32-pcre2                                                          [------------------------------------------------------] 100%
+( 68/112) actualizando lib32-cairo                                                          [------------------------------------------------------] 100%
+( 69/112) actualizando lib32-fribidi                                                        [------------------------------------------------------] 100%
+( 70/112) actualizando lib32-harfbuzz                                                       [------------------------------------------------------] 100%
+( 71/112) actualizando lib32-librsvg                                                        [------------------------------------------------------] 100%
+( 72/112) actualizando lib32-llvm-libs                                                      [------------------------------------------------------] 100%
+( 73/112) actualizando lib32-openssl                                                        [------------------------------------------------------] 100%
+( 74/112) actualizando lib32-mesa                                                           [------------------------------------------------------] 100%
+( 75/112) actualizando lib32-nss                                                            [------------------------------------------------------] 100%
+( 76/112) actualizando lib32-systemd                                                        [------------------------------------------------------] 100%
+( 77/112) actualizando vulkan-mesa-implicit-layers                                          [------------------------------------------------------] 100%
+( 78/112) actualizando lib32-vulkan-mesa-implicit-layers                                    [------------------------------------------------------] 100%
+( 79/112) actualizando vulkan-intel                                                         [------------------------------------------------------] 100%
+( 80/112) actualizando lib32-vulkan-intel                                                   [------------------------------------------------------] 100%
+( 81/112) actualizando libcupsfilters                                                       [------------------------------------------------------] 100%
+( 82/112) actualizando libgsf                                                               [------------------------------------------------------] 100%
+( 83/112) actualizando libmupdf                                                             [------------------------------------------------------] 100%
+( 84/112) actualizando libnm                                                                [------------------------------------------------------] 100%
+( 85/112) actualizando librustls                                                            [------------------------------------------------------] 100%
+( 86/112) actualizando libsrtp                                                              [------------------------------------------------------] 100%
+( 87/112) actualizando libwireplumber                                                       [------------------------------------------------------] 100%
+( 88/112) actualizando mkinitcpio                                                           [------------------------------------------------------] 100%
+( 89/112) actualizando limine-mkinitcpio-hook                                               [------------------------------------------------------] 100%
+( 90/112) actualizando limine-snapper-sync                                                  [------------------------------------------------------] 100%
+advertencia: /etc/limine-snapper-sync.conf se ha instalado como /etc/limine-snapper-sync.conf.pacnew
+( 91/112) actualizando linux-cachyos                                                        [------------------------------------------------------] 100%
+( 92/112) actualizando llvm                                                                 [------------------------------------------------------] 100%
+( 93/112) actualizando lld                                                                  [------------------------------------------------------] 100%
+( 94/112) actualizando linux-cachyos-headers                                                [------------------------------------------------------] 100%
+( 95/112) actualizando linux-cachyos-nvidia-open                                            [------------------------------------------------------] 100%
+( 96/112) actualizando networkmanager                                                       [------------------------------------------------------] 100%
+( 97/112) actualizando pangomm-2.48                                                         [------------------------------------------------------] 100%
+( 98/112) actualizando parted                                                               [------------------------------------------------------] 100%
+( 99/112) actualizando ppp                                                                  [------------------------------------------------------] 100%
+(100/112) actualizando python-cbor2                                                         [------------------------------------------------------] 100%
+(101/112) actualizando python-dbus                                                          [------------------------------------------------------] 100%
+(102/112) actualizando python-fonttools                                                     [------------------------------------------------------] 100%
+(103/112) actualizando qpdf                                                                 [------------------------------------------------------] 100%
+(104/112) actualizando sdl_image                                                            [------------------------------------------------------] 100%
+(105/112) actualizando shelly                                                               [------------------------------------------------------] 100%
+(106/112) actualizando smbclient                                                            [------------------------------------------------------] 100%
+(107/112) actualizando sof-firmware                                                         [------------------------------------------------------] 100%
+(108/112) actualizando systemd-resolvconf                                                   [------------------------------------------------------] 100%
+(109/112) actualizando systemd-sysvcompat                                                   [------------------------------------------------------] 100%
+(110/112) actualizando vpl-gpu-rt                                                           [------------------------------------------------------] 100%
+(111/112) actualizando wireplumber                                                          [------------------------------------------------------] 100%
+(112/112) actualizando zathura-pdf-mupdf                                                    [------------------------------------------------------] 100%
+:: Ejecutando los «hooks» de posinstalación...
+( 1/35) Generating the configured locale...
+Generating locales...
+  en_US.UTF-8... done
+  es_ES.UTF-8... done
+Generation complete.
+( 2/35) Configuring dynamic linker run-time bindings...
+( 3/35) Creating iconv module configuration cache...
+( 4/35) Creating 32bit iconv module configuration cache...
+( 5/35) Creating system user accounts...
+( 6/35) Creating temporary files...
+( 7/35) Updating journal message catalog...
+( 8/35) Updating udev hardware database...
+( 9/35) Applying kernel sysctl settings...
+Couldn't write '4096' to 'net/core/netdev_max_backlog', ignoring: No such file or directory
+(10/35) Reloading system manager configuration...
+(11/35) Reloading user manager configuration...
+(12/35) Updating the MIME type database...
+(13/35) Enqueuing marked services...
+(14/35) Reloading device manager configuration...
+(15/35) Arming ConditionNeedsUpdate...
+(16/35) Loading new kernel modules...
+(17/35) Rebuilding certificate stores...
+(18/35) Updating module dependencies...
+(19/35) Deploying Limine after upgrade...
+Limine EFI install completed successfully.
+(20/35) Clean Limine boot entries of removed kernels
+(21/35) Updating linux initcpios...

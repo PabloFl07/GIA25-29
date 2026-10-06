@@ -1,0 +1,19 @@
+set A := A1 A2 A3 ;
+set V := V1 V2 V3 V4 V5 ;
+
+param c :  V1  V2  V3  V4  V5 :=
+     A1    15  10  12   8   5
+     A2     5   5  10   4   8
+     A3     8  10  15  10   5 ;
+
+param viajes :=
+     A1  50
+     A2  90
+     A3  70 ;
+
+param vuelos :=
+     V1  100
+     V2   80
+     V3   70
+     V4   30
+     V5   20 ;
